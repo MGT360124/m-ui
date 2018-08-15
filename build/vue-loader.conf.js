@@ -11,6 +11,7 @@ module.exports = {
     sourceMap: sourceMapEnabled,
     extract: isProduction
   }),
+  postcss: [require('autoprefixer')], //  自动添加浏览器前缀
   cssSourceMap: sourceMapEnabled,
   cacheBusting: config.dev.cacheBusting,
   transformToRequire: {
