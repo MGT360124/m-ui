@@ -1,0 +1,186 @@
+@import "common/var";
+
+@font-face {
+  font-family: 'element-icons';
+  src: url('#{$--font-path}/element-icons.woff') format('woff'), /* chrome, firefox */
+       url('#{$--font-path}/element-icons.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-style: normal
+}
+
+[class^="m-icon-"], [class*=" m-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'element-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.m-icon-info:before { content: "\e61a"; }
+
+.m-icon-error:before { content: "\e62c"; }
+
+.m-icon-success:before { content: "\e62d"; }
+
+.m-icon-warning:before { content: "\e62e"; }
+
+.m-icon-question:before { content: "\e634"; }
+
+.m-icon-back:before { content: "\e606"; }
+
+.m-icon-arrow-left:before { content: "\e600"; }
+
+.m-icon-arrow-down:before { content: "\e603"; }
+
+.m-icon-arrow-right:before { content: "\e604"; }
+
+.m-icon-arrow-up:before { content: "\e605"; }
+
+.m-icon-caret-left:before { content: "\e60a"; }
+
+.m-icon-caret-bottom:before { content: "\e60b"; }
+
+.m-icon-caret-top:before { content: "\e60c"; }
+
+.m-icon-caret-right:before { content: "\e60e"; }
+
+.m-icon-d-arrow-left:before { content: "\e610"; }
+
+.m-icon-d-arrow-right:before { content: "\e613"; }
+
+.m-icon-minus:before { content: "\e621"; }
+
+.m-icon-plus:before { content: "\e62b"; }
+
+.m-icon-remove:before { content: "\e635"; }
+
+.m-icon-circle-plus:before { content: "\e601"; }
+
+.m-icon-remove-outline:before { content: "\e63c"; }
+
+.m-icon-circle-plus-outline:before { content: "\e602"; }
+
+.m-icon-close:before { content: "\e60f"; }
+
+.m-icon-check:before { content: "\e611"; }
+
+.m-icon-circle-close:before { content: "\e607"; }
+
+.m-icon-circle-check:before { content: "\e639"; }
+
+.m-icon-circle-close-outline:before { content: "\e609"; }
+
+.m-icon-circle-check-outline:before { content: "\e63e"; }
+
+.m-icon-zoom-out:before { content: "\e645"; }
+
+.m-icon-zoom-in:before { content: "\e641"; }
+
+.m-icon-d-caret:before { content: "\e615"; }
+
+.m-icon-sort:before { content: "\e640"; }
+
+.m-icon-sort-down:before { content: "\e630"; }
+
+.m-icon-sort-up:before { content: "\e631"; }
+
+.m-icon-tickets:before { content: "\e63f"; }
+
+.m-icon-document:before { content: "\e614"; }
+
+.m-icon-goods:before { content: "\e618"; }
+
+.m-icon-sold-out:before { content: "\e63b"; }
+
+.m-icon-news:before { content: "\e625"; }
+
+.m-icon-message:before { content: "\e61b"; }
+
+.m-icon-date:before { content: "\e608"; }
+
+.m-icon-printer:before { content: "\e62f"; }
+
+.m-icon-time:before { content: "\e642"; }
+
+.m-icon-bell:before { content: "\e622"; }
+
+.m-icon-mobile-phone:before { content: "\e624"; }
+
+.m-icon-service:before { content: "\e63a"; }
+
+.m-icon-view:before { content: "\e643"; }
+
+.m-icon-menu:before { content: "\e620"; }
+
+.m-icon-more:before { content: "\e646"; }
+
+.m-icon-more-outline:before { content: "\e626"; }
+
+.m-icon-star-on:before { content: "\e637"; }
+
+.m-icon-star-off:before { content: "\e63d"; }
+
+.m-icon-location:before { content: "\e61d"; }
+
+.m-icon-location-outline:before { content: "\e61f"; }
+
+.m-icon-phone:before { content: "\e627"; }
+
+.m-icon-phone-outline:before { content: "\e628"; }
+
+.m-icon-picture:before { content: "\e629"; }
+
+.m-icon-picture-outline:before { content: "\e62a"; }
+
+.m-icon-delete:before { content: "\e612"; }
+
+.m-icon-search:before { content: "\e619"; }
+
+.m-icon-edit:before { content: "\e61c"; }
+
+.m-icon-edit-outline:before { content: "\e616"; }
+
+.m-icon-rank:before { content: "\e632"; }
+
+.m-icon-refresh:before { content: "\e633"; }
+
+.m-icon-share:before { content: "\e636"; }
+
+.m-icon-setting:before { content: "\e638"; }
+
+.m-icon-upload:before { content: "\e60d"; }
+
+.m-icon-upload2:before { content: "\e644"; }
+
+.m-icon-download:before { content: "\e617"; }
+
+.m-icon-loading:before { content: "\e61e"; }
+
+.m-icon-loading {
+  animation: rotating 2s linear infinite;
+}
+
+.m-icon--right {
+  margin-left: 5px;
+}
+.m-icon--left {
+  margin-right: 5px;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
