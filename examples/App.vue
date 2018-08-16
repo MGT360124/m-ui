@@ -26,7 +26,7 @@ export default {
   data(){
     return {
       items: [
-        {path:"/test",name:"测试页面"},
+        {path:"/test",name:"MAlert"},
       ]
     }
   },
@@ -82,7 +82,7 @@ body {
   font-size: 32px;
   font-weight: 700;
   /*background-color: #00a4af;*/
-  background-color: #4ea9ec;
+  background-color: #14ad993d;
   color: #fff;
 }
 

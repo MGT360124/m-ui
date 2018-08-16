@@ -10,11 +10,13 @@
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build-packages": "webpack --progress --display-modules --colors --display-reasons --config  build/webpack.packages.conf.js"
   },
   "dependencies": {
     "cheerio": "0.20.0",
     "es6-promise": "^4.2.4",
+    "html-loader": "^0.5.5",
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
     "node-sass": "^4.9.3",
@@ -46,7 +48,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
@@ -64,7 +66,7 @@
     "selenium-server": "^3.0.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
-    "uglifyjs-webpack-plugin": "^1.1.1",
+    "uglifyjs-webpack-plugin": "^1.3.0",
     "url-loader": "^0.5.8",
     "vue-jest": "^1.0.2",
     "vue-loader": "^13.3.0",
