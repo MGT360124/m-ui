@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import index from "../demos/index";
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/test"
+      redirect: "/test",
+      component:index
     },
     {
       name: "test",

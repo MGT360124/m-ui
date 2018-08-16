@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const webpack = require('webpack')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
@@ -9,13 +10,6 @@ const striptags = require('./strip-tags')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-function convert(str) {
-  str = str.replace(/(&#x)(\w{4});/gi, function ($0) {
-    return String.fromCharCode(parseInt(encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'), 16));
-  });
-  return str;
-}
-
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -42,6 +36,15 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
+      },
+      {
+        test: /\.scss$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            minimize: true || {/* CSSNano Options */}
+          }
+        }, 'sass-loader']
       },
       {
         test: /\.js$/,
@@ -82,10 +85,14 @@ module.exports = {
                 return params.trim().match(/^demo\s*(.*)$/);
               },
               render: function (tokens, idx) {
+
                 var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+
                 if (tokens[idx].nesting === 1) {
-                  var content = tokens[idx + 1].content;
-                  var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1');
+                  var desc = tokens[idx + 2].content;
+                  const html = utils.convertHtml(striptags(tokens[idx + 1].content, 'script'))
+                  // 移除描述，防止被添加到代码块
+                  tokens[idx + 2].children = [];
 
                   return `<code-block class="demo-box">
                     <div class="source" slot="source">${html}</div>
@@ -117,5 +124,29 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty'
-  }
+  },
+  performance: {
+    hints: false
+  },
 }
+var wrap = function (render) {
+  return function () {
+    return render.apply(this, arguments)
+      .replace('<code class="', '<code class="hljs ')
+      .replace('<code>', '<code class="hljs">');
+  };
+};
+
+module.exports.devtool = '#source-map'
+module.exports.plugins = (module.exports.plugins || []).concat([
+  new webpack.optimize.UglifyJsPlugin({
+    sourceMap: false,
+    compress: {
+      warnings: false
+    }
+  })
+  ,
+  new webpack.LoaderOptionsPlugin({
+    minimize: true
+  })
+])
