@@ -3,10 +3,14 @@
  * Date: 18/8/15
  */
 
-import Alert from './components/alert/index';
+import ALert from './components/alert/index';
+import Button from "./components/button/index";
+import ButtonGroup from "./components/button-group/index";
 
 const components = [
-    Alert,
+    ALert,
+    Button,
+    ButtonGroup
 ]
 
 const install = function (Vue, options = {}) {
@@ -14,7 +18,6 @@ const install = function (Vue, options = {}) {
     components.map(component => Vue.component(component.name, component))
 
     const M = {};
-
     Vue.prototype.$M = {
         size: options.size || '',
         zIndex: options.zIndex || 2000
@@ -28,5 +31,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
     install,
-    Alert,
+    ALert,
+    Button,
+    ButtonGroup
 }

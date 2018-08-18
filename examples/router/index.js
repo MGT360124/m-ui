@@ -7,13 +7,18 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/test",
+      redirect: "/alert",
       component:index
     },
     {
-      name: "test",
-      path: "/test",
-      component: r => require.ensure([], () => r(require('../docs/test.md')))
+      name: "alert",
+      path: "/alert",
+      component: r => require.ensure([], () => r(require('../docs/alert.md')))
+    },
+    {
+      name: "button",
+      path: "/button",
+      component: r => require.ensure([], () => r(require('../docs/button.md')))
     }
   ]
 })

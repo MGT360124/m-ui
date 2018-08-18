@@ -26,7 +26,8 @@ export default {
   data(){
     return {
       items: [
-        {path:"/test",name:"MAlert"},
+        {path:"/alert",name:"Alert"},
+        {path:"/button",name:"Button"},
       ]
     }
   },
