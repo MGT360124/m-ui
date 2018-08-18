@@ -7,13 +7,16 @@ import ALert from './components/alert/index';
 import Button from "./components/button/index";
 import ButtonGroup from "./components/button-group/index";
 import Row from "./components/row/index";
-
+import Card from "./components/card/index";
+import Col from "./components/col/index";
 
 const components = [
     ALert,
     Button,
     ButtonGroup,
     Row,
+    Card,
+    Col,
 ]
 
 const install = function (Vue, options = {}) {
@@ -38,4 +41,6 @@ export default {
     Button,
     ButtonGroup,
     Row,
+    Card,
+    Col,
 }

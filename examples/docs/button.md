@@ -32,7 +32,7 @@
 :::demo 使用`type`、`plain`、`round`和`circle`属性来定义 Button 的样式。
 
 ```html
-<m-row>
+<m-row style="margin-top:20px">
   <m-button>默认按钮</m-button>
   <m-button type="primary">主要按钮</m-button>
   <m-button type="success">成功按钮</m-button>
@@ -41,7 +41,7 @@
   <m-button type="danger">危险按钮</m-button>
 </m-row>
 
-<m-row>
+<m-row style="margin-top:20px">
   <m-button plain>朴素按钮</m-button>
   <m-button type="primary" plain>主要按钮</m-button>
   <m-button type="success" plain>成功按钮</m-button>
@@ -50,7 +50,7 @@
   <m-button type="danger" plain>危险按钮</m-button>
 </m-row>
 
-<m-row>
+<m-row style="margin-top:20px">
   <m-button round>圆角按钮</m-button>
   <m-button type="primary" round>主要按钮</m-button>
   <m-button type="success" round>成功按钮</m-button>
@@ -59,7 +59,7 @@
   <m-button type="danger" round>危险按钮</m-button>
 </m-row>
 
-<m-row>
+<m-row style="margin-top:20px">
   <m-button icon="m-icon-search" circle></m-button>
   <m-button type="primary" icon="m-icon-edit" circle></m-button>
   <m-button type="success" icon="m-icon-check" circle></m-button>
@@ -77,7 +77,7 @@
 :::demo 你可以使用`disabled`属性来定义按钮是否可用，它接受一个`Boolean`值。
 
 ```html
-<m-row>
+<m-row style="margin-top:20px">
   <m-button disabled>默认按钮</m-button>
   <m-button type="primary" disabled>主要按钮</m-button>
   <m-button type="success" disabled>成功按钮</m-button>
@@ -86,7 +86,7 @@
   <m-button type="danger" disabled>危险按钮</m-button>
 </m-row>
 
-<m-row>
+<m-row style="margin-top:20px">
   <m-button plain disabled>朴素按钮</m-button>
   <m-button type="primary" plain disabled>主要按钮</m-button>
   <m-button type="success" plain disabled>成功按钮</m-button>

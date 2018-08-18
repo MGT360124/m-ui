@@ -1,7 +1,10 @@
 <template>
 	<div class="demo-block" :class="[blockClass,{ 'hover': hovering }]" @mouseenter="hovering = true" @mouseleave="hovering = false">
 		<slot name="source"></slot>
-		<div class="meta">
+		<div class="meta" ref="meta">
+			<div class="description" v-if="$slots.default">
+              <slot></slot>
+            </div>
 			<slot name="highlight"></slot>
 		</div>
 		<div class="demo-block-control" @click="isExpanded = !isExpanded">
@@ -17,169 +20,204 @@
 
 <style>
 .demo-block {
-	border: solid 1px #eaeefb;
-	border-radius: 4px;
-	transition: .2s;
+  border: solid 1px #eaeefb;
+  border-radius: 4px;
+  transition: 0.2s;
 
-	&.hover {
-		box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
-	}
+  &.hover {
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
+      0 2px 4px 0 rgba(232, 237, 250, 0.5);
+  }
 
-	code {
-		font-family: Menlo, Monaco, Consolas, Courier, monospace;
-		/*将.hljs样式暂时放在这里*/
-		display: block;
-		overflow-x: auto;
-		padding: 0.5em;
-		background-color: #f9fafc;
-		padding: 18px 24px;
-	}
+  code {
+    font-family: Menlo, Monaco, Consolas, Courier, monospace;
+    /*将.hljs样式暂时放在这里*/
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background-color: #f9fafc;
+    padding: 18px 24px;
+  }
 
-	.demo-button {
-		float: right;
-	}
+  .demo-button {
+    float: right;
+  }
 
-	.source {
-		padding: 24px;
-	}
+  .source {
+    padding: 24px;
+  }
 
-	.meta {
-		background-color: #f9fafc;
-		border-top: solid 1px #eaeefb;
-		clear: both;
-		overflow: hidden;
-		height: 0;
-		transition: height .2s;
-	}
+  .meta {
+    background-color: #f9fafc;
+    border-top: solid 1px #eaeefb;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.2s;
+  }
+  .description {
+    padding: 20px;
+    box-sizing: border-box;
+    border: solid 1px #ebebeb;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+    word-break: break-word;
+    margin: 10px;
+    background-color: #000;
 
-	.highlight {
-		width: 100%; 
-		border-right: solid 1px #eaeefb;
-		overflow: auto;
-        overflow-x:scroll;
-		pre {
-			margin: 0;
-		}
+    p {
+      margin: 0;
+      line-height: 26px;
+    }
 
-		code.hljs {
-			margin: 0;
-			border: none;
-			overflow-x: auto;
-			max-height: none;
-			border-radius: 0;
+    code {
+      color: #5e6d82;
+      background-color: #e6effb;
+      margin: 0 4px;
+      display: inline-block;
+      padding: 1px 5px;
+      font-size: 12px;
+      border-radius: 3px;
+      height: 18px;
+      line-height: 18px;
+    }
+  }
 
-			&::before {
-				content: none;
-			}
-		}
-	}
+  .highlight {
+    width: 100%;
+    border-right: solid 1px #eaeefb;
+    overflow: auto;
+    overflow-x: scroll;
+    pre {
+      margin: 0;
+    }
 
-	.demo-block-control {
-		border-top: solid 1px #eaeefb;
-		height: 36px;
-		box-sizing: border-box;
-		background-color: #fff;
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
-		text-align: center;
-		margin-top: -1px;
-		color: #d3dce6;
-		cursor: pointer;
-		transition: .2s;
-		position: relative;
+    code.hljs {
+      margin: 0;
+      border: none;
+      overflow-x: auto;
+      max-height: none;
+      border-radius: 0;
 
-		i {
-			font-size: 12px;
-			line-height: 36px;
-			transition: .3s;
-			&.hovering {
-				transform: translateX(-40px);
-			}
-		}
+      &::before {
+        content: none;
+      }
+    }
+  }
 
-		span {
-			position: absolute;
-			transform: translateX(-30px);
-			font-size: 14px;
-			line-height: 36px;
-			transition: .3s;
-			display: inline-block;
-		}
+  .demo-block-control {
+    border-top: solid 1px #eaeefb;
+    height: 36px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+    margin-top: -1px;
+    color: #d3dce6;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
 
-		&:hover {
-			color: #20a0ff;
-			background-color: #f9fafc;
-		}
+    i {
+      font-size: 12px;
+      line-height: 36px;
+      transition: 0.3s;
+      &.hovering {
+        transform: translateX(-40px);
+      }
+    }
 
-		& .text-slide-enter,
-		& .text-slide-leave-active {
-			opacity: 0;
-			transform: translateX(10px);
-		}
-	}
+    span {
+      position: absolute;
+      transform: translateX(-30px);
+      font-size: 14px;
+      line-height: 36px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    &:hover {
+      color: #20a0ff;
+      background-color: #f9fafc;
+    }
+
+    & .text-slide-enter,
+    & .text-slide-leave-active {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+  }
 }
-.language-html{
-	display: block;
-	padding:10px 0;
-	overflow-x: auto;
+.language-html {
+  display: block;
+  padding: 10px 5px;
+  overflow-x: auto;
 }
 </style>
 
 <script type="text/babel">
 export default {
-	name: 'CodeBlock',
-	data() {
-		return {
-			hovering: false,
-			isExpanded: false
-		};
-	},
+  name: "CodeBlock",
+  data() {
+    return {
+      hovering: false,
+      isExpanded: false
+    };
+  },
 
-	computed: {
-		langConfig() {
-			return {
-				"hide-text": "隐藏代码",
-				"show-text": "显示代码"
-			};
-		},
-		blockClass() {
-			return `demo-${this.$router.currentRoute.path.split('/').pop()}`;
-		},
-		iconClass() {
-			return this.isExpanded ? 'aui-icon-caret-top' : 'aui-icon-caret-bottom';
-		},
+  computed: {
+    langConfig() {
+      return {
+        "hide-text": "隐藏代码",
+        "show-text": "显示代码"
+      };
+    },
+    blockClass() {
+      return `demo-${this.$router.currentRoute.path.split("/").pop()}`;
+    },
+    iconClass() {
+      return this.isExpanded ? "aui-icon-caret-top" : "aui-icon-caret-bottom";
+    },
 
-		controlText() {
-			return this.isExpanded ? this.langConfig['hide-text'] : this.langConfig['show-text'];
-		},
+    controlText() {
+      return this.isExpanded
+        ? this.langConfig["hide-text"]
+        : this.langConfig["show-text"];
+    },
 
-		codeArea() {
-			return this.$el.getElementsByClassName('meta')[0];
-		},
+    codeArea() {
+        return this.$el.getElementsByClassName('meta')[0];
+      },
 
-		codeAreaHeight() {
-        if (this.$el.getElementsByClassName('description').length > 0) {
-          return this.$el.getElementsByClassName('description')[0].clientHeight +
-            this.$el.getElementsByClassName('highlight')[0].clientHeight + 20;
-        }
-        return this.$el.getElementsByClassName('highlight')[0].clientHeight;
+    codeAreaHeight() {
+      if (this.$el.getElementsByClassName("description").length > 0) {
+        return (
+          this.$el.getElementsByClassName("description")[0].clientHeight +
+          this.$el.getElementsByClassName("highlight")[0].clientHeight +
+          20
+        );
       }
-	},
+      return this.$el.getElementsByClassName("highlight")[0].clientHeight;
+    }
+  },
 
-	watch: {
-		isExpanded(val) {
-			this.codeArea.style.height = val ? `${this.codeAreaHeight + 1}px` : '0';
-		}
-	},
+  watch: {
+    isExpanded(val) {
+      this.codeArea.style.height = val ? `${this.codeAreaHeight + 1}px` : "0";
+    }
+  },
 
-	mounted() {
-		this.$nextTick(() => {
-			let highlight = this.$el.getElementsByClassName('highlight')[0];
-			if (this.$el.getElementsByClassName('description').length === 0) {
-				highlight.style.width = '100%';
-				highlight.borderRight = 'none';
-			}
-		});
-	}
+  mounted() {
+    this.$nextTick(() => {
+      let highlight = this.$el.getElementsByClassName("highlight")[0];
+      if (this.$el.getElementsByClassName("description").length === 0) {
+        highlight.style.width = "100%";
+        highlight.borderRight = "none";
+      }
+    });
+  }
 };
 </script>
