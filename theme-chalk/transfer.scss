@@ -65,16 +65,16 @@
   background: $--color-white;
   display: inline-block;
   vertical-align: middle;
-  width: $--transfer-panaui-width;
+  width: $--transfer-panel-width;
   max-height: 100%;
   box-sizing: border-box;
   position: relative;
 
   @include e(body) {
-    height: $--transfer-panaui-body-height;
+    height: $--transfer-panel-body-height;
 
     @include when(with-footer) {
-      padding-bottom: $--transfer-panaui-footer-height;
+      padding-bottom: $--transfer-panel-footer-height;
     }
   }
 
@@ -82,12 +82,12 @@
     margin: 0;
     padding: 6px 0;
     list-style: none;
-    height: $--transfer-panaui-body-height;
+    height: $--transfer-panel-body-height;
     overflow: auto;
     box-sizing: border-box;
 
     @include when(filterable) {
-      height: #{$--transfer-panaui-body-height - $--transfer-filter-height - 20px};
+      height: #{$--transfer-panel-body-height - $--transfer-filter-height - 20px};
       padding-top: 0;
     }
   }
@@ -153,9 +153,9 @@
   }
 
   .m-transfer-panel__header {
-    height: $--transfer-panaui-header-height;
-    line-height: $--transfer-panaui-header-height;
-    background: $--transfer-panaui-header-background;
+    height: $--transfer-panel-header-height;
+    line-height: $--transfer-panel-header-height;
+    background: $--transfer-panel-header-background;
     margin: 0;
     padding-left: 15px;
     border-bottom: 1px solid $--transfer-border-color;
@@ -183,7 +183,7 @@
   }
 
   .m-transfer-panel__footer {
-    height: $--transfer-panaui-footer-height;
+    height: $--transfer-panel-footer-height;
     background: $--color-white;
     margin: 0;
     padding: 0;
@@ -207,6 +207,7 @@
     line-height: $--transfer-item-height;
     padding: 6px 15px 0;
     color: $--color-text-secondary;
+    text-align: center;
   }
 
   .m-checkbox__label {

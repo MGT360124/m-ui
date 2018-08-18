@@ -26,6 +26,13 @@
     }
   }
 
+  @include m(dates) {
+    .m-input__inner {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
   .m-icon-circle-close {
     cursor: pointer;
   }
@@ -80,7 +87,13 @@
 
 @include b(range-editor) {
   &.m-input__inner {
+    display: inline-flex;
+    align-items: center;
     padding: 3px 10px;
+  }
+
+  .m-range-input {
+    line-height: 1;
   }
 
   @include when(active) {

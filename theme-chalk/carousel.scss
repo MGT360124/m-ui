@@ -15,19 +15,19 @@
     outline: none;
     padding: 0;
     margin: 0;
-    height: $--carousaui-arrow-size;
-    width: $--carousaui-arrow-size;
+    height: $--carousel-arrow-size;
+    width: $--carousel-arrow-size;
     cursor: pointer;
     transition: .3s;
     border-radius: 50%;
-    background-color: $--carousaui-arrow-background;
+    background-color: $--carousel-arrow-background;
     color: $--color-white;
     position: absolute;
     top: 50%;
     z-index: 10;
     transform: translateY(-50%);
     text-align: center;
-    font-size: $--carousaui-arrow-font-size;
+    font-size: $--carousel-arrow-font-size;
 
     @include m(left) {
       left: 16px;
@@ -38,7 +38,7 @@
     }
 
     &:hover {
-      background-color: $--carousaui-arrow-hover-background;
+      background-color: $--carousel-arrow-hover-background;
     }
 
     & i {
@@ -57,7 +57,7 @@
     z-index: #{$--index-normal + 1};
 
     @include m(outside) {
-      bottom: #{$--carousaui-indicator-height + $--carousaui-indicator-padding-vertical * 2};
+      bottom: #{$--carousel-indicator-height + $--carousel-indicator-padding-vertical * 2};
       text-align: center;
       position: static;
       transform: none;
@@ -65,7 +65,7 @@
         opacity: 0.64;
       }
       button {
-        background-color: $--carousaui-indicator-out-color;
+        background-color: $--carousel-indicator-out-color;
         opacity: 0.24;
       }
     }
@@ -92,7 +92,7 @@
   @include e(indicator) {
     display: inline-block;
     background-color: transparent;
-    padding: $--carousaui-indicator-padding-vertical $--carousaui-indicator-padding-horizontal;
+    padding: $--carousel-indicator-padding-vertical $--carousel-indicator-padding-horizontal;
     cursor: pointer;
 
     &:hover button {
@@ -109,8 +109,8 @@
   @include e(button) {
     display: block;
     opacity: 0.48;
-    width: $--carousaui-indicator-width;
-    height: $--carousaui-indicator-height;
+    width: $--carousel-indicator-width;
+    height: $--carousel-indicator-height;
     background-color: $--color-white;
     border: none;
     outline: none;
@@ -121,14 +121,14 @@
   }
 }
 
-.carousaui-arrow-left-enter,
-.carousaui-arrow-left-leave-active {
+.carousel-arrow-left-enter,
+.carousel-arrow-left-leave-active {
   transform: translateY(-50%) translateX(-10px);
   opacity: 0;
 }
 
-.carousaui-arrow-right-enter,
-.carousaui-arrow-right-leave-active {
+.carousel-arrow-right-enter,
+.carousel-arrow-right-leave-active {
   transform: translateY(-50%) translateX(10px);
   opacity: 0;
 }

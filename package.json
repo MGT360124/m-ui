@@ -14,7 +14,7 @@
     "build-packages": "webpack --progress --display-modules --colors --display-reasons --config  build/webpack.packages.conf.js"
   },
   "dependencies": {
-    "cheerio": "0.20.0",
+    "cheerio": "^0.20.0",
     "es6-promise": "^4.2.4",
     "html-loader": "^0.5.5",
     "markdown-it": "^8.4.2",

@@ -475,7 +475,8 @@ $--dialog-padding-primary: 20px !default;
 
 /* Table
 -------------------------- */
-$--table-border:  1px solid $--border-color-lighter !default;
+$--table-border-color: $--border-color-lighter !default;
+$--table-border: 1px solid $--table-border-color !default;
 $--table-text-color: $--color-text-regular !default;
 $--table-header-color: $--color-text-secondary !default;
 $--table-row-hover-background: $--background-color-base !default;
@@ -596,6 +597,7 @@ $--steps-padding: 20px !default;
 
 /* Menu
 --------------------------*/
+$--menu-item-font-size: $--font-size-base !default;
 $--menu-item-color: $--color-text-primary !default;
 $--menu-item-fill: $--color-white !default;
 $--menu-item-hover-fill: $--color-primary-light-9 !default;
@@ -634,15 +636,15 @@ $--scrollbar-hover-background-color: rgba($--color-text-secondary, .5) !default;
 
 /* Carousel
 --------------------------*/
-$--carousaui-arrow-font-size: 12px !default;
-$--carousaui-arrow-size: 36px !default;
-$--carousaui-arrow-background: rgba(31, 45, 61, 0.11) !default;
-$--carousaui-arrow-hover-background: rgba(31, 45, 61, 0.23) !default;
-$--carousaui-indicator-width: 30px !default;
-$--carousaui-indicator-height: 2px !default;
-$--carousaui-indicator-padding-horizontal: 4px !default;
-$--carousaui-indicator-padding-vertical: 12px !default;
-$--carousaui-indicator-out-color: $--border-color-hover !default;
+$--carousel-arrow-font-size: 12px !default;
+$--carousel-arrow-size: 36px !default;
+$--carousel-arrow-background: rgba(31, 45, 61, 0.11) !default;
+$--carousel-arrow-hover-background: rgba(31, 45, 61, 0.23) !default;
+$--carousel-indicator-width: 30px !default;
+$--carousel-indicator-height: 2px !default;
+$--carousel-indicator-padding-horizontal: 4px !default;
+$--carousel-indicator-padding-vertical: 12px !default;
+$--carousel-indicator-out-color: $--border-color-hover !default;
 
 /* Collapse
 --------------------------*/
@@ -660,11 +662,11 @@ $--collapse-content-color: $--color-text-primary !default;
 --------------------------*/
 $--transfer-border-color: $--border-color-lighter !default;
 $--transfer-border-radius: $--border-radius-base !default;
-$--transfer-panaui-width: 200px !default;
-$--transfer-panaui-header-height: 40px !default;
-$--transfer-panaui-header-background: $--background-color-base !default;
-$--transfer-panaui-footer-height: 40px !default;
-$--transfer-panaui-body-height: 246px !default;
+$--transfer-panel-width: 200px !default;
+$--transfer-panel-header-height: 40px !default;
+$--transfer-panel-header-background: $--background-color-base !default;
+$--transfer-panel-footer-height: 40px !default;
+$--transfer-panel-body-height: 246px !default;
 $--transfer-item-height: 30px !default;
 $--transfer-item-hover-background: $--color-text-secondary !default;
 $--transfer-filter-height: 32px !default;
