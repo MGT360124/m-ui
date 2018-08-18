@@ -14,7 +14,7 @@ export default {
 .wrapper{
     width:100%;
     height:100%;
-    background-image: url("../../static/images/bg.jpg");
+    background-image: url("../../static/images/bg1.jpg");
     background-repeat: no-repeat;
 }
 </style>

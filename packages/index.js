@@ -6,11 +6,14 @@
 import ALert from './components/alert/index';
 import Button from "./components/button/index";
 import ButtonGroup from "./components/button-group/index";
+import Row from "./components/row/index";
+
 
 const components = [
     ALert,
     Button,
-    ButtonGroup
+    ButtonGroup,
+    Row,
 ]
 
 const install = function (Vue, options = {}) {
@@ -33,5 +36,6 @@ export default {
     install,
     ALert,
     Button,
-    ButtonGroup
+    ButtonGroup,
+    Row,
 }
