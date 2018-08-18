@@ -38,6 +38,15 @@ module.exports = {
         options: vueLoaderConfig
       },
       {
+        test: /\.less$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {
+            minimize: true || {/* CSSNano Options */}
+          }
+        }, 'less-loader']
+      },
+      {
         test: /\.scss$/,
         use: ['style-loader', {
           loader: 'css-loader',
