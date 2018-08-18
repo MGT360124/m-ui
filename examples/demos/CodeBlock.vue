@@ -53,9 +53,10 @@
 	}
 
 	.highlight {
-		width: 100%;
+		width: 100%; 
 		border-right: solid 1px #eaeefb;
-
+		overflow: auto;
+        overflow-x:scroll;
 		pre {
 			margin: 0;
 		}
@@ -63,6 +64,7 @@
 		code.hljs {
 			margin: 0;
 			border: none;
+			overflow-x: auto;
 			max-height: none;
 			border-radius: 0;
 
@@ -116,6 +118,11 @@
 		}
 	}
 }
+.language-html{
+	display: block;
+	padding:10px 0;
+	overflow-x: auto;
+}
 </style>
 
 <script type="text/babel">
@@ -151,8 +158,12 @@ export default {
 		},
 
 		codeAreaHeight() {
-			return this.$el.getElementsByClassName('highlight')[0].clientHeight;
-		}
+        if (this.$el.getElementsByClassName('description').length > 0) {
+          return this.$el.getElementsByClassName('description')[0].clientHeight +
+            this.$el.getElementsByClassName('highlight')[0].clientHeight + 20;
+        }
+        return this.$el.getElementsByClassName('highlight')[0].clientHeight;
+      }
 	},
 
 	watch: {
