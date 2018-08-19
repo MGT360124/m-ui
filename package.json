@@ -11,6 +11,7 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "build": "node build/build.js",
+    "build-examples": "webpack   --config  build/webpack.examples.conf.js",
     "build-packages": "webpack --progress --display-modules --colors --display-reasons --config  build/webpack.packages.conf.js"
   },
   "dependencies": {

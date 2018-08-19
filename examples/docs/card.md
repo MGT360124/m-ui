@@ -1,5 +1,5 @@
 <script>
-  import dateUtil from 'main/utils/date'
+  import dateUtil from '../../packages/utils/date'
   export default {
     data() {
       return {
@@ -128,7 +128,7 @@
 <m-row>
   <m-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
     <m-card :body-style="{ padding: '0px' }">
-      <img src="@/assets/images/hamburger.png" class="image">
+      <img src="../assets/images/hamburger.png" class="image">
       <div style="padding: 14px;">
         <span>好吃的汉堡</span>
         <div class="bottom clearfix">
