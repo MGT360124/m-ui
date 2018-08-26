@@ -27,7 +27,8 @@ export default {
       items: [
         {path:"/alert",name:"Alert"},
         {path:"/button",name:"Button"},
-        {path:"/card",name:"Card"}
+        {path:"/card",name:"Card"},
+        {path:"/input",name:"Input"}
       ]
     }
   },
