@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/babel">
-  import Popper from '../../../utils/vue-popper';
+  import Popper from 'main/utils/vue-popper';
 
   export default {
     name: 'MSelectDropdown',
@@ -58,7 +58,7 @@
 
     watch: {
       '$parent.inputWidth'() {
-        this.minWidth = this.$parent.$m.getBoundingClientRect().width + 'px';
+        this.minWidth = this.$parent.$el.getBoundingClientRect().width + 'px';
       }
     },
 

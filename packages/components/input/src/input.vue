@@ -289,11 +289,11 @@
         }
       },
       calcIconOffset(place) {
-        let mList = [].slice.call(this.$m.querySelectorAll(`.m-input__${place}`) || []);
+        let mList = [].slice.call(this.$el.querySelectorAll(`.m-input__${place}`) || []);
         if (!mList.length) return;
         let m = null;
         for (let i = 0; i < mList.length; i++) {
-          if (mList[i].parentNode === this.$m) {
+          if (mList[i].parentNode === this.$el) {
             m = mList[i];
             break;
           }
@@ -306,7 +306,7 @@
 
         const pendant = pendantMap[place];
         if (this.$slots[pendant]) {
-          m.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${this.$m.querySelector(`.m-input-group__${pendant}`).offsetWidth}px)`;
+          m.style.transform = `translateX(${place === 'suffix' ? '-' : ''}${this.$el.querySelector(`.m-input-group__${pendant}`).offsetWidth}px)`;
         } else {
           m.removeAttribute('style');
         }

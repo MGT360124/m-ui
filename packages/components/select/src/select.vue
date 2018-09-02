@@ -133,23 +133,23 @@
 </template>
 
 <script type="text/babel">
-  import Emitter from '../../../mixins/emitter';
-  import Focus from '../../../mixins/focus';
-  import Locale from '../../../mixins/locale';
-  import MInput from 'm-ui/packages/input';
+  import Emitter from 'main/mixins/emitter';
+  import Focus from 'main/mixins/focus';
+  import Locale from 'main/mixins/locale';
+  import MInput from 'main/components/input';
   import MSelectMenu from './select-dropdown.vue';
   import MOption from './option.vue';
-  import MTag from 'm-ui/packages/tag';
-  import MScrollbar from 'm-ui/packages/scrollbar';
-  import debounce from 'throttle-debounce/debounce';
-  import Clickoutside from '../../../utils/clickoutside';
-  import { addClass, removeClass, hasClass } from '../../../utils/dom';
-  import { addResizeListener, removeResizeListener } from '../../../utils/resize-event';
-  import { t } from 'm-ui/src/locale';
-  import scrollIntoView from '../../../utils/scroll-into-view';
-  import { getValueByPath,valueEquals} from '../../../utils/util';
+  import MTag from 'main/components/tag';
+  import MScrollbar from 'main/components/scrollbar';
+  import { throttle, debounce } from 'throttle-debounce';
+  import Clickoutside from 'main/utils/clickoutside';
+  import { addClass, removeClass, hasClass } from 'main/utils/dom';
+  import { addResizeListener, removeResizeListener } from 'main/utils/resize-event';
+  import { t } from 'main/locale';
+  import scrollIntoView from 'main/utils/scroll-into-view';
+  import { getValueByPath,valueEquals} from 'main/utils/util';
   import NavigationMixin from './navigation-mixin';
-  import { isKorean } from '../../../utils/shared';
+  import { isKorean } from 'main/utils/shared';
 
   const sizeMap = {
     'medium': 36,
@@ -417,7 +417,7 @@
         if (this.multiple) {
           this.resetInputHeight();
         }
-        let inputs = this.$m.querySelectorAll('input');
+        let inputs = this.$el.querySelectorAll('input');
         if ([].indexOf.call(inputs, document.activeElement) === -1) {
           this.setSelected();
         }
@@ -475,23 +475,23 @@
       },
 
       handleIconHide() {
-        let icon = this.$m.querySelector('.m-input__icon');
+        let icon = this.$el.querySelector('.m-input__icon');
         if (icon) {
           removeClass(icon, 'is-reverse');
         }
       },
 
       handleIconShow() {
-        let icon = this.$m.querySelector('.m-input__icon');
+        let icon = this.$el.querySelector('.m-input__icon');
         if (icon && !hasClass(icon, 'm-icon-circle-close')) {
           addClass(icon, 'is-reverse');
         }
       },
 
       scrollToOption(option) {
-        const target = Array.isArray(option) && option[0] ? option[0].$m : option.$m;
+        const target = Array.isArray(option) && option[0] ? option[0].$el : option.$el;
         if (this.$refs.popper && target) {
-          const menu = this.$refs.popper.$m.querySelector('.m-select-dropdown__wrap');
+          const menu = this.$refs.popper.$el.querySelector('.m-select-dropdown__wrap');
           scrollIntoView(menu, target);
         }
         this.$refs.scrollbar && this.$refs.scrollbar.handleScroll();
@@ -642,7 +642,7 @@
         if (this.collapseTags && !this.filterable) return;
         this.$nextTick(() => {
           if (!this.$refs.reference) return;
-          let inputChildNodes = this.$refs.reference.$m.childNodes;
+          let inputChildNodes = this.$refs.reference.$el.childNodes;
           let input = [].filter.call(inputChildNodes, item => item.tagName === 'INPUT')[0];
           const tags = this.$refs.tags;
           const sizeInMap = sizeMap[this.selectSize] || 40;
@@ -787,7 +787,7 @@
       },
 
       resetInputWidth() {
-        this.inputWidth = this.$refs.reference.$m.getBoundingClientRect().width;
+        this.inputWidth = this.$refs.reference.$el.getBoundingClientRect().width;
       },
 
       handleResize() {
@@ -859,20 +859,20 @@
       if (this.multiple && Array.isArray(this.value) && this.value.length > 0) {
         this.currentPlaceholder = '';
       }
-      addResizeListener(this.$m, this.handleResize);
+      addResizeListener(this.$el, this.handleResize);
       if (this.remote && this.multiple) {
         this.resetInputHeight();
       }
       this.$nextTick(() => {
-        if (this.$refs.reference && this.$refs.reference.$m) {
-          this.inputWidth = this.$refs.reference.$m.getBoundingClientRect().width;
+        if (this.$refs.reference && this.$refs.reference.$el) {
+          this.inputWidth = this.$refs.reference.$el.getBoundingClientRect().width;
         }
       });
       this.setSelected();
     },
 
     beforeDestroy() {
-      if (this.$m && this.handleResize) removeResizeListener(this.$m, this.handleResize);
+      if (this.$el && this.handleResize) removeResizeListener(this.$el, this.handleResize);
     }
   };
 </script>

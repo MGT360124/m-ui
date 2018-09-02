@@ -10,6 +10,9 @@ import Row from "./components/row/index";
 import Card from "./components/card/index";
 import Col from "./components/col/index";
 import Input from "./components/input/index";
+import Select from "./components/select/index";
+import AutoComplete from "./components/autocomplete/index"
+import Option from "./components/option/index"
 const components = [
     ALert,
     Button,
@@ -18,6 +21,9 @@ const components = [
     Card,
     Col,
     Input,
+    Select,
+    Option,
+    AutoComplete,
 ]
 
 const install = function (Vue, options = {}) {
@@ -45,4 +51,7 @@ export default {
     Card,
     Col,
     Input,
+    Select,
+    Option,
+    AutoComplete,
 }
