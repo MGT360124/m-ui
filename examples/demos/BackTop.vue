@@ -6,6 +6,7 @@
 export default {
     name: 'BackTop',
     data() {
+        console.log("this",this);
         return {
             
         }

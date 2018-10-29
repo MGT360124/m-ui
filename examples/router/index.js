@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Login from "../demos/login.vue"
 import Index from "../demos/index.vue";
 Vue.use(Router)
-console.log(Index)
 export default new Router({
   routes: [
     {
